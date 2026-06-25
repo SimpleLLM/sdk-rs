@@ -31,7 +31,7 @@ async fn main() -> simplellm::Result<()> {
     let client = SimpleLLM::from_env()?;
 
     let resp = client.chat_completion(ChatCompletionRequest {
-        model: "deepseek-v3".to_string(),
+        model: "DeepSeek-Chat-V3.1".to_string(),
         messages: vec![ChatMessage {
             role: Role::User,
             content: Some("What is the capital of France?".to_string()),
@@ -58,7 +58,7 @@ async fn main() -> simplellm::Result<()> {
     let client = SimpleLLM::from_env()?;
 
     let mut stream = client.chat_completion_stream(ChatCompletionRequest {
-        model: "deepseek-v3".to_string(),
+        model: "DeepSeek-Chat-V3.1".to_string(),
         messages: vec![ChatMessage {
             role: Role::User,
             content: Some("Count to 5.".to_string()),
@@ -91,7 +91,7 @@ async fn main() -> simplellm::Result<()> {
 
     let audio = std::fs::read("recording.mp3")?;
     let result = client.transcribe(audio, "recording.mp3", TranscriptionRequest {
-        model: Some("whisper-1".to_string()),
+        model: Some("whisper-large-v3".to_string()),
         language: Some("en".to_string()),
         ..Default::default()
     }).await?;
@@ -133,7 +133,7 @@ async fn main() -> simplellm::Result<()> {
 
     let resp = client.generate_image(ImageGenerationRequest {
         prompt: "A sunset over the Alps".to_string(),
-        model: Some("dall-e-3".to_string()),
+        model: Some("sdxl".to_string()),
         n: Some(1),
         size: Some("1024x1024".to_string()),
         ..Default::default()

@@ -14,7 +14,7 @@ async fn test_chat_completion() {
             "id": "chatcmpl-123",
             "object": "chat.completion",
             "created": 1700000000_i64,
-            "model": "deepseek-v3",
+            "model": "DeepSeek-Chat-V3.1",
             "choices": [{
                 "index": 0,
                 "message": {"role": "assistant", "content": "Hello!"},
@@ -34,7 +34,7 @@ async fn test_chat_completion() {
 
     let resp = client
         .chat_completion(ChatCompletionRequest {
-            model: "deepseek-v3".to_string(),
+            model: "DeepSeek-Chat-V3.1".to_string(),
             messages: vec![ChatMessage {
                 role: Role::User,
                 content: Some("Hello!".to_string()),
@@ -66,7 +66,7 @@ async fn test_models() {
             "object": "list",
             "data": [
                 {
-                    "id": "deepseek-v3",
+                    "id": "DeepSeek-Chat-V3.1",
                     "object": "model",
                     "created": 1700000000_i64,
                     "owned_by": "simplellm"
@@ -85,7 +85,7 @@ async fn test_models() {
 
     let list = client.models().await.unwrap();
     assert_eq!(list.data.len(), 1);
-    assert_eq!(list.data[0].id, "deepseek-v3");
+    assert_eq!(list.data[0].id, "DeepSeek-Chat-V3.1");
     assert_eq!(list.data[0].owned_by, "simplellm");
 }
 

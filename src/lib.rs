@@ -9,7 +9,7 @@
 //! async fn main() -> simplellm::Result<()> {
 //!     let client = SimpleLLM::from_env()?;
 //!     let resp = client.chat_completion(ChatCompletionRequest {
-//!         model: "deepseek-v3".to_string(),
+//!         model: "DeepSeek-Chat-V3.1".to_string(),
 //!         messages: vec![ChatMessage {
 //!             role: Role::User,
 //!             content: Some("Hello!".to_string()),

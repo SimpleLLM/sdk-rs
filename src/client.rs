@@ -422,7 +422,7 @@ mod tests {
     #[test]
     fn test_chat_request_serialization_omits_optional_fields() {
         let req = ChatCompletionRequest {
-            model: "deepseek-v3".to_string(),
+            model: "DeepSeek-Chat-V3.1".to_string(),
             messages: vec![ChatMessage {
                 role: Role::User,
                 content: Some("Hi".to_string()),
@@ -450,7 +450,7 @@ mod tests {
             json.get("tool_choice").is_none(),
             "tool_choice should be absent"
         );
-        assert_eq!(json["model"], "deepseek-v3");
+        assert_eq!(json["model"], "DeepSeek-Chat-V3.1");
     }
 
     #[test]
